@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fleet & Tracking - Hacienda Logistics</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Hacienda Logistics</h2>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About Us</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="fleet.html" class="nav-link active">Fleet & Tracking</a>
+                <a href="clients.html" class="nav-link">Clients</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Fleet & Tracking</h1>
+            <p>Advanced fleet management with real-time GPS tracking across East Africa</p>
+        </div>
+    </section>
+
+    <!-- Fleet Overview -->
+    <section class="services-overview">
+        <div class="container">
+            <h2>Our Modern Fleet</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>MAN & Mercedes Trucks</h3>
+                    <p>Heavy-duty and long-haul trucks with advanced safety and GPS tracking, maintained every 10,000 km.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-truck-pickup"></i>
+                    </div>
+                    <h3>Mitsubishi Fuso</h3>
+                    <p>Light to medium-duty trucks for urban deliveries, maintained every 6,000 km for maximum efficiency.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-satellite-dish"></i>
+                    </div>
+                    <h3>Real-Time GPS Tracking</h3>
+                    <p>24/7 satellite tracking on all vehicles, providing clients with real-time shipment information.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Track Your Shipment</h2>
+                <p>Access our client portal to get real-time updates on your cargo.</p>
+                <div class="tracking-form">
+                    <input type="text" id="tracking-number" placeholder="Enter your tracking number">
+                    <button class="btn btn-primary" onclick="trackShipment()">Track</button>
+                </div>
+                <div id="tracking-results"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Hacienda Logistics</h3>
+                    <p>Your trusted partner for transport and logistics solutions in East Africa.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="fleet.html">Fleet & Tracking</a></li>
+                        <li><a href="clients.html">Clients</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="services.html#transport">Transport & Logistics</a></li>
+                        <li><a href="services.html#clearing">Clearing & Forwarding</a></li>
+                        <li><a href="services.html#staff">Staff Transport</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Embakasi, off North Airport Road, Nairobi</p>
+                    <p><i class="fas fa-phone"></i> +254724270717 / +254703113300</p>
+                    <p><i class="fas fa-envelope"></i> operations@haciendaltd.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Hacienda Logistics Limited. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
