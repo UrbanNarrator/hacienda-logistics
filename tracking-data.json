@@ -1,0 +1,12 @@
+{
+  "HL12345678": {
+    "status": "In Transit",
+    "location": "Nairobi, JKIA",
+    "eta": "July 22, 2025"
+  },
+  "HL87654321": {
+    "status": "Delivered",
+    "location": "Kampala, Uganda",
+    "eta": "July 19, 2025"
+  }
+}

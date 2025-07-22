@@ -127,22 +127,44 @@ function handleFormSubmission(form) {
     });
 }
 // trackShipment function
-function trackShipment() {
-    const trackingNumber = document.getElementById('tracking-number').value;
+// NEW: lightweight front-end tracker that pulls from a JSON file
+async function trackShipment() {
+    const id = document.getElementById('tracking-number').value.trim().toUpperCase();
     const resultsDiv = document.getElementById('tracking-results');
 
-    resultsDiv.innerHTML = '<p>Tracking shipment...</p>';
+    // quick validation
+    const re = /^[A-Z0-9]{8,16}$/;
+    if (!re.test(id)) {
+        resultsDiv.innerHTML = '<p style="color:#e74c3c">Tracking ID must be 8-16 alphanumeric characters.</p>';
+        return;
+    }
 
-    setTimeout(() => {
-        if (trackingNumber) {
+    // loading state
+    resultsDiv.innerHTML = '<p><i class="fas fa-spinner fa-spin"></i> Searching…</p>';
+
+    try {
+        // 1. If you already have /api/track/:id endpoint, swap this URL
+        // const res = await fetch(`/api/track/${id}`);
+        // const data = await res.json();
+
+        // 2. DEMO: load from a local JSON file (see step 3)
+        const res = await fetch('./tracking-data.json');
+        const db = await res.json();
+        const data = db[id];
+
+        if (data) {
             resultsDiv.innerHTML = `
-                <h3>Tracking Results for: ${trackingNumber}</h3>
-                <p><strong>Status:</strong> In Transit</p>
-                <p><strong>Location:</strong> Nairobi, Kenya</p>
-                <p><strong>Estimated Delivery:</strong> 2 days</p>
-            `;
+                <div style="background:#fff;border-radius:8px;padding:1rem;box-shadow:0 2px 8px rgba(0,0,0,.1);text-align:left;">
+                    <h3 style="margin:.2rem 0 .8rem;">${id}</h3>
+                    <p><strong>Status:</strong> ${data.status}</p>
+                    <p><strong>Location:</strong> ${data.location}</p>
+                    <p><strong>Estimated Delivery:</strong> ${data.eta}</p>
+                </div>`;
         } else {
-            resultsDiv.innerHTML = '<p>Please enter a valid tracking number.</p>';
+            resultsDiv.innerHTML = '<p style="color:#e74c3c">Shipment not found. Please check the ID and try again.</p>';
         }
-    }, 2000);
+    } catch (err) {
+        console.error(err);
+        resultsDiv.innerHTML = '<p style="color:#e74c3c">Unable to reach tracker at the moment. Try again shortly.</p>';
+    }
 }
